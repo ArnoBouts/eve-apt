@@ -1,0 +1,20 @@
+pipeline:
+  dockerfile:
+    image: alpine
+    commands:
+      - sed -i -e "s/latest/${TAG}/1" Dockerfile
+
+  publish:
+    image: plugins/docker
+    registry: no-cloud.fr
+    repo: no-cloud.fr/eve/debian
+    tag: ${TAG}
+    file: Dockerfile-${TAG}
+
+matrix:
+  TAG:
+    - stable
+    - sid
+    - jessie
+    - latest
+    - unstable
