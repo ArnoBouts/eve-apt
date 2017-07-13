@@ -11,6 +11,10 @@ pipeline:
     tag: ${TAG}
     file: Dockerfile-${TAG}
 
+  notify:
+    image: no-cloud.fr/drone-xmpp
+    secrets: [ xmpp_jid, xmpp_password, xmpp_to ]
+
 matrix:
   TAG:
     - stable
