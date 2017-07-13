@@ -20,5 +20,6 @@ matrix:
     - stable
     - sid
     - jessie
+    - stretch
     - latest
     - unstable
